@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Tabs from './components/shared/Tabs';
+import Header from './components/Header';
+import PollList from './components/PollList';
+import CreatePollForm from './components/CreatePollForm';
+import { PollProvider } from './context/PollContext';
 
 function App() {
+  const items = ['Current Polls', 'Add Poll'];
+  const [activeItem, setActiveItem] = useState('Current Polls');
+  const handleTabChange = (item) => {
+    setActiveItem(item);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PollProvider>
+      <Header />
+      <div className='container'>
+        <Tabs
+          items={items}
+          activeItem={activeItem}
+          handleTabChange={handleTabChange}
+        />
+        {activeItem === 'Current Polls' && <PollList />}
+        {activeItem === 'Add Poll' && <CreatePollForm />}
+      </div>
+    </PollProvider>
   );
 }
 
