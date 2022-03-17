@@ -12,6 +12,11 @@ function App() {
     setActiveItem(item);
   };
 
+  // Switch back to Current Polls after add poll
+  const handleAddPoll = () => {
+    setActiveItem('Current Polls');
+  };
+
   return (
     <PollProvider>
       <Header />
@@ -22,7 +27,9 @@ function App() {
           handleTabChange={handleTabChange}
         />
         {activeItem === 'Current Polls' && <PollList />}
-        {activeItem === 'Add Poll' && <CreatePollForm />}
+        {activeItem === 'Add Poll' && (
+          <CreatePollForm handleAddPoll={handleAddPoll} />
+        )}
       </div>
     </PollProvider>
   );

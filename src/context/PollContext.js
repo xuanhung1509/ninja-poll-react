@@ -3,8 +3,8 @@ import { createContext, useState } from 'react';
 const PollContext = createContext();
 
 export const PollProvider = ({ children }) => {
-  // Construct poll data
-  const [poll, setPoll] = useState([
+  // Construct polls data
+  const [polls, setPolls] = useState([
     {
       question: 'JavaScript or Python?',
       answerA: 'JavaScript',
@@ -14,7 +14,7 @@ export const PollProvider = ({ children }) => {
       id: 1,
     },
     {
-      question: 'What is your favorite Front-End framework?',
+      question: 'Your favorite framework?',
       answerA: 'React',
       answerB: 'Angular',
       voteA: 22,
@@ -24,7 +24,7 @@ export const PollProvider = ({ children }) => {
   ]);
 
   return (
-    <PollContext.Provider value={{ poll }}>{children}</PollContext.Provider>
+    <PollContext.Provider value={{ polls }}>{children}</PollContext.Provider>
   );
 };
 
