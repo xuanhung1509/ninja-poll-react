@@ -1,0 +1,49 @@
+@use '../../scss/vars';
+
+.poll-list-item {
+  text-align: center;
+
+  h3 {
+    text-align: left;
+  }
+
+  small {
+    display: block;
+    margin: 0.5rem 0 1rem;
+    text-align: left;
+  }
+
+  .answer {
+    cursor: pointer;
+    position: relative;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+
+    span {
+      z-index: 1;
+    }
+
+    .percent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+    }
+
+    .percent-a {
+      background: vars.$primary-light-color;
+    }
+
+    .percent-b {
+      background: vars.$secondary-light-color;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@use '../../../scss/vars';
+
+%btn {
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.925rem;
+}
+
+.btn-primary {
+  @extend %btn;
+  background: vars.$primary-color;
+  color: #fff;
+}
+
+.btn-secondary {
+  @extend %btn;
+  background: vars.$secondary-color;
+  color: #fff;
+}

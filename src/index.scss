@@ -1,0 +1,39 @@
+@use '../src/scss/vars';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.tab-list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-list-item {
+  cursor: pointer;
+  padding: 5px 10px;
+
+  &:hover,
+  &.active {
+    border-bottom: 3px solid vars.$primary-color;
+  }
+}
