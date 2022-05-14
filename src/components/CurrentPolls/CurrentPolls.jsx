@@ -1,13 +1,17 @@
 import './CurrentPolls.scss';
+import { useContext } from 'react';
 import Card from '../shared/Card/Card';
 import Poll from '../Poll/Poll';
+import PollContext from '../../context/PollContext';
 
-function CurrentPolls({ polls, onVote, onDelete }) {
+function CurrentPolls() {
+  const { polls } = useContext(PollContext);
+
   return (
     <div className='poll-list'>
       {polls.map((poll) => (
         <Card key={poll.id}>
-          <Poll poll={poll} onVote={onVote} onDelete={onDelete} />
+          <Poll poll={poll} />
         </Card>
       ))}
     </div>

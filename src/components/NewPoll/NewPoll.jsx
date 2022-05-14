@@ -1,10 +1,12 @@
 import './NewPoll.scss';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
+import PollContext from '../../context/PollContext';
 import Button from '../shared/Button/Button';
 
-function NewPoll({ onSubmit }) {
+function NewPoll() {
+  const { addPoll } = useContext(PollContext);
   const [formData, setFormData] = useState({
     id: uuidv4(),
     question: '',
@@ -41,7 +43,7 @@ function NewPoll({ onSubmit }) {
     if (error.question !== '' && error.answerA !== '' && error.answerB !== '')
       return;
 
-    onSubmit(formData);
+    addPoll(formData);
     setFormData({
       id: uuidv4(),
       question: '',
